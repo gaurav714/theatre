@@ -1,0 +1,10 @@
+spring:
+ data:
+   mongodb:
+     uri: mongodb://localhost/TheaterDB
+     database: TheaterDB
+     port: 27017
+     host: localhost
+server:
+ port: 8089
+
