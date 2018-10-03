@@ -25,7 +25,7 @@ public class TheatreServiceImplTest {
 	private Theatre theatre;
 
 	@Mock
-	private  TheatreRepository thetarerepository;
+	private  TheatreRepository theatrerepository;
 
 	@InjectMocks
 	private TheatreServiceImpl theatreserviceimpl;
@@ -53,8 +53,8 @@ public class TheatreServiceImplTest {
 	@Test
 	public void getByEmailTest() throws Exception
 	{
-		when(thetarerepository.getByEmailId(theatre.getEmailId())).thenReturn(theatre);
-		Theatre savedTheatre =theatreserviceimpl.getEmailId(theatre.getEmailId());
+		when(theatrerepository.getByEmailId(theatre.getEmailId())).thenReturn(theatre);
+		Theatre savedTheatre =theatreserviceimpl.getEmailId("utkarsh@gmail.com");
 		Assert.assertEquals(theatre,savedTheatre);
 	}
 
@@ -62,8 +62,8 @@ public class TheatreServiceImplTest {
 	@Test
 	public void getTheatreByTheatreTitleTest() throws TheatreNotFoundException
 	{
-		when(thetarerepository.getByName(theatre.getName())).thenReturn(theatre);
-		Theatre saveTheatre =theatreserviceimpl.getTheatreByTheatreTitle(theatre.getName());
+		when(theatrerepository.getByName(theatre.getName())).thenReturn(theatre);
+		Theatre saveTheatre =theatreserviceimpl.getTheatreByTheatreTitle("pvr");
 		Assert.assertEquals(theatre,saveTheatre);
 	}
 	
