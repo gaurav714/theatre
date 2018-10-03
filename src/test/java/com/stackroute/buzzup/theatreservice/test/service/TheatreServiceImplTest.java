@@ -48,57 +48,23 @@ public class TheatreServiceImplTest {
 		options=Optional.of(theatre);
 	}
 
-	/*@Test
-	public void createTheatreSuccess() throws Exception{
-		when(thetarerepository.insert((Theatre) any())).thenReturn (theatre);
-		Theatre savedTheatre=theatreserviceimpl.saveTheatre(theatre);
-		Assert.assertEquals(theatre,savedTheatre);
-	}
-	*/
-	/*
-	 * @Test
-	public void saveMovieScreeningTestSuccess() throws Exception {
-		when(moviescreeningrepository.insert((MovieScreening) any())).thenReturn(moviescreening);
-		MovieScreening savedmovie = moviescreeningserviceimpl.saveMovieDetails(moviescreening);
-		Assert.assertEquals(moviescreening, savedmovie);
-	}
-	 */
-	
-	/*@Test(expected=TheatreAlreadyExistsException.class)
-	public void saveTheatreSuccess() throws TheatreAlreadyExistsException
-	{
-		when(thetarerepository.save((Theatre) any())).thenReturn(theatre);
-		Theatre  savetheatre =theatreserviceimpl.saveTheatre(theatre);
-		Assert.assertEquals(theatre,savetheatre);
-	}*/
 	
 	
 	@Test
-	public void getByEmailSuccess() throws Exception
+	public void getByEmailTest() throws Exception
 	{
 		when(thetarerepository.getByEmailId(theatre.getEmailId())).thenReturn(theatre);
 		Theatre savedTheatre =theatreserviceimpl.getEmailId(theatre.getEmailId());
 		Assert.assertEquals(theatre,savedTheatre);
 	}
-	@Test
-	public void getByEmailFailure()throws Exception
-	{
-		when(thetarerepository.getByEmailId(theatre.getEmailId())).thenReturn(theatre);
-		theatre.setEmailId("u");
-	}
+
 
 	@Test
-	public void getTheatreByTheatreTitleSuccess() throws TheatreNotFoundException
+	public void getTheatreByTheatreTitleTest() throws TheatreNotFoundException
 	{
 		when(thetarerepository.getByName(theatre.getName())).thenReturn(theatre);
 		Theatre saveTheatre =theatreserviceimpl.getTheatreByTheatreTitle(theatre.getName());
 		Assert.assertEquals(theatre,saveTheatre);
 	}
 	
-	@Test
-	public void getTheatreByTheatreTitleFailure() throws TheatreNotFoundException
-	{
-		when(thetarerepository.getByName(theatre.getName())).thenReturn(theatre);
-		theatre.setName("abcd");
-	}
 }
